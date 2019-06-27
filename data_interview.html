@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>参考资料</title>
+  <style>
+    .content{display: none;}
+  </style>
+</head>
+<body>
+  <div class="content">
+    <!--这里都是别人整理好的文档，看着不多，把链接拿来-->
+    <h2>Css/Css3</h2>
+    <h4>· 响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw/vh）</h4>
+    <a href="https://github.com/forthealllight/blog/issues/13">https://github.com/forthealllight/blog/issues/13</a>
+    <h2>其他</h2>
+    <h4>· 前端面试总结——http、html和浏览器篇</h4>
+    <a href="https://github.com/forthealllight/blog/issues/19">https://github.com/forthealllight/blog/issues/19</a>
+    <h4>· 【面试篇】寒冬求职季之你必须要懂的原生JS(上)</h4>
+    <a href="https://juejin.im/post/5cab0c45f265da2513734390">https://juejin.im/post/5cab0c45f265da2513734390</a>
+    <h4>· 【面试篇】寒冬求职季之你必须要懂的原生JS(中)</h4>
+    <a href="https://juejin.im/post/5cbd1e33e51d45789161d053">https://juejin.im/post/5cbd1e33e51d45789161d053</a>
+    <h4>· 嗨，你真的懂this吗？</h4>
+    <a href="https://github.com/YvetteLau/Blog/issues/6">https://github.com/YvetteLau/Blog/issues/6</a>
+    <h4>· 送你43道JavaScript面试题</h4>
+    <a href="https://juejin.im/post/5d0644976fb9a07ed064b0ca">https://juejin.im/post/5d0644976fb9a07ed064b0ca</a>
+    <h4>· 这儿有20道大厂面试题等你查收</h4>
+    <a href="https://juejin.im/post/5d124a12f265da1b9163a28d">https://juejin.im/post/5d124a12f265da1b9163a28d</a>
+    <h4>· 8年前端开发的知识点沉淀</h4>
+    <a href="https://juejin.im/post/5d0878aaf265da1b83338f74">https://juejin.im/post/5d0878aaf265da1b83338f74</a>
+    <h4>· 一个合格的中级前端工程师必须要掌握的 28 个 JavaScript 技巧</h4>
+    <a href="https://juejin.im/post/5cef46226fb9a07eaf2b7516">https://juejin.im/post/5cef46226fb9a07eaf2b7516</a>
+  </div>
+</body>
+<script>
+
+ function instance_oc(L, R) {
+   var O = R.prototype;
+   L = L.__proto__;
+   while (true) {
+     if (L === null) {
+       return false;
+     }
+     if (O === L) {
+       return true;
+       L = L.__proto__;
+     }
+   }
+ }
+ /**
+  * this */
+ var number = 5;
+ var obj = {
+   number: 3,
+   fn1: (function () {
+     var number;
+     this.number *= 2;
+     number = number * 2;
+     number = 3;
+     return function () {
+       var num = this.number;
+       this.number *= 2;
+       console.log('this num', num);  //
+       number *= 3;
+       console.log('this number', number);
+     }
+   })()
+ };
+ var fn1 = obj.fn1;
+ fn1.call(null);
+ obj.fn1();
+ console.log('this window.number', window.number);
+ /**
+  * 函数柯里化 */
+ function sum(a) {
+   return function(b) {
+     return function(c) {
+       return a+b+c;
+     }
+   }
+ }
+ console.log('函数柯里化:', sum(1)(2)(3)); // 6
+</script>
